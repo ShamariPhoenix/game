@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(timer > 1 / enemiesPerSecond) {
             timer = 0;
-
+            SpawnEnemy();
         }
     }
 
