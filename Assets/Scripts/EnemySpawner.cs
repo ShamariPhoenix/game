@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy() {
         var enemy = Instantiate(enemyPrefab, enemyParentTransform);
         enemy.transform.position = GetRandomLocation();
+        numEnemiesSpawned += 1;
     }
 
     private Vector3 GetRandomLocation() {
