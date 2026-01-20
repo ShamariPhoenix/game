@@ -86,8 +86,12 @@ public class Laser : MonoBehaviour
         var bullet = Instantiate(bulletPrefab);
         bullet.transform.position = playerTransform.position;
         var projectile = bullet.GetComponent<Projectile>();
-        var direction = enemy.position - bullet.transform.position;
+        var direction = (enemy.position - bullet.transform.position).normalized;
         projectile.fire(direction);
+
+        var damager=bullet.GetComponent<Damager>();
+
+        damager.setDamage(1);
     }
 
 
