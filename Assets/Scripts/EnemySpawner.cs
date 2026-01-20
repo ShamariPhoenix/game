@@ -2,40 +2,56 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public LevelWaveData levelWaveData;
     public Transform enemyParentTransform;
-    public float enemiesPerSecond = 1;
-    public int maxEnemiesToSpawn;
     public float enemySpawnDistance = 1;
-
-    private int numEnemiesSpawned = 0;
     private float timer = 0;
+    private int currentWave = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         timer = 0;
+        currentWave = 0;
+        SpawnWave();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(numEnemiesSpawned >= maxEnemiesToSpawn) {
-            return;
-        }
-
         timer += Time.deltaTime;
 
-        if(timer > 1 / enemiesPerSecond) {
+        if(timer > levelWaveData.timeBetweenWaves) {
             timer = 0;
-            SpawnEnemy();
+            SpawnWave();
         }
     }
 
-    private void SpawnEnemy() {
-        var enemy = Instantiate(enemyPrefab, enemyParentTransform);
-        enemy.transform.position = GetRandomLocation();
-        numEnemiesSpawned += 1;
+    private void SpawnWave()
+    {
+        // If there are no more waves, return
+        if(currentWave >= levelWaveData.waveData.Count) {
+            return;
+        }
+
+        // get the current wave
+        WaveData waveData = levelWaveData.waveData[currentWave];
+
+        foreach(EnemyInWaveData enemyInWaveData in waveData.enemyData)
+        {
+            GameObject enemyPrefab = enemyInWaveData.enemyPrefab;
+            int count = enemyInWaveData.count;
+            Debug.Log(count);
+
+            for(int i = 0; i < count; i++)
+            {
+                var enemy = Instantiate(enemyPrefab, enemyParentTransform);
+                enemy.transform.position = GetRandomLocation();
+            }
+        }
+
+
+        currentWave++;
     }
 
     private Vector3 GetRandomLocation() {
