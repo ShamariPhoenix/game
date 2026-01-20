@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4b95dca0ea9ef4d8ad951f1797b8b0, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::LevelWaveData
-  waveData: []
-  timeBetweenWaves: 0
+  waveData:
+  - enemyData:
+    - enemyPrefab: {fileID: 4009562732056801181, guid: 22739f6d527eb5f45b3c877859c1d0f4, type: 3}
+      count: 10
+    - enemyPrefab: {fileID: 1896070540501996578, guid: d6d5d2bbbf2e91542b520b6ed973ad24, type: 3}
+      count: 2
+  - enemyData:
+    - enemyPrefab: {fileID: 4009562732056801181, guid: 22739f6d527eb5f45b3c877859c1d0f4, type: 3}
+      count: 20
+    - enemyPrefab: {fileID: 1896070540501996578, guid: d6d5d2bbbf2e91542b520b6ed973ad24, type: 3}
+      count: 5
+  timeBetweenWaves: 10

@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
     public LevelWaveData levelWaveData;
     public Transform enemyParentTransform;
     public float enemySpawnDistance = 1;
+    public float spawnDistanceJitter = 1;
     private float timer = 0;
     private int currentWave = 0;
 
@@ -56,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetRandomLocation() {
         var radians = UnityEngine.Random.value * 2 * Mathf.PI;
-        return new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0) * enemySpawnDistance;
+        var spawnDistance = (Random.value - 0.5f) * 2 * spawnDistanceJitter + enemySpawnDistance;
+        return new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0) * spawnDistance;
     }
 }
