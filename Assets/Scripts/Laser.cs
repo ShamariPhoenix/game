@@ -18,35 +18,29 @@ public class Laser : MonoBehaviour
 
     void Start()
     {
-
         playerTransform = transform;
-
-
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Transform[] enemies = new Transform[enemyParent.childCount];
-        for (int i = 0; i < enemyParent.childCount; i++)
-        {
-            enemies[i] = enemyParent.GetChild(i);
-        }
-
-        if (enemies.Length <= 0)
-        {
-            return;
-        }
-
-        var enemy = getNearestEnemy(enemies);
-        faceTowards(enemy);
-
         timer += Time.deltaTime;
         if (timer > 1 / fireRate)
         {
+            Transform[] enemies = new Transform[enemyParent.childCount];
+            for (int i = 0; i < enemyParent.childCount; i++)
+            {
+                enemies[i] = enemyParent.GetChild(i);
+            }
+
+            if (enemies.Length <= 0)
+            {
+                return;
+            }
+
+            var enemy = getNearestEnemy(enemies);
+            faceTowards(enemy);
+
             shootBullet(enemy);
             timer = 0;
         }
@@ -55,7 +49,7 @@ public class Laser : MonoBehaviour
 
     private void faceTowards(Transform enemyTransform)
     {
-        playerTransform.right = enemyTransform.position - playerTransform.position;
+        playerTransform.right = (enemyTransform.position - playerTransform.position).normalized;
     }
 
 
