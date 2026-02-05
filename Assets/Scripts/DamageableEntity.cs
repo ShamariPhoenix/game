@@ -1,12 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class DamageableEntity : MonoBehaviour
 {
     public int MaxHealth;
+
+    public ParticleSystem PS;
     private int CurrentHealth;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CurrentHealth = MaxHealth;
@@ -23,6 +26,9 @@ public class DamageableEntity : MonoBehaviour
 
     private void OnHealthReachedZero()
     {
+        PS.transform.SetParent(null,false);
+        PS.transform.position=transform.position;
+        PS.Play();  
         Destroy(gameObject);
     }
 
