@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MoveTowardsPlayer : MonoBehaviour
@@ -18,5 +19,11 @@ public class MoveTowardsPlayer : MonoBehaviour
         Vector3 myPosition = transform.position;
         Vector3 vectorToPlayer = (playerPosition - myPosition).normalized;
         transform.position += vectorToPlayer * Time.deltaTime*speed;
+
+        float angle = Mathf.Atan2(vectorToPlayer.y, vectorToPlayer.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+
+    
     }
 }
