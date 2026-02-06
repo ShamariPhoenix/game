@@ -2,20 +2,33 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxLife = 1;
+    public float Xp { get; private set;}
 
-    public void inflictDamage(int damage)
+    public float XpPerLevel = 10f;
+    public float XpPerLevelFactor = 1.1f;
+
+    private float XpToNextLevel;
+
+    public LevelUpPanel levelUpPanel;
+
+    private void Awake()
     {
-        maxLife -= damage;
-        if (maxLife <= 0)
+        XpToNextLevel = XpPerLevel;
+    }
+
+    public void AddXP(float amount)
+    {
+        Xp += amount;
+        if(Xp >= XpToNextLevel)
         {
-            maxLife = 0;
-            destroyPlayer();
+            LevelUp();
         }
     }
-    
-    private void destroyPlayer()
+
+    private void LevelUp()
     {
-        Debug.Log("YOU LOSE");
+        Xp -= XpToNextLevel;
+        XpToNextLevel *= XpPerLevelFactor;
+        levelUpPanel.Show();
     }
 }

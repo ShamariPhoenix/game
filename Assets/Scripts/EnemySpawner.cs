@@ -42,7 +42,6 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject enemyPrefab = enemyInWaveData.enemyPrefab;
             int count = enemyInWaveData.count;
-            Debug.Log(count);
 
             for(int i = 0; i < count; i++)
             {
