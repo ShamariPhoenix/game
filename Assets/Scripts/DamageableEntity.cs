@@ -9,9 +9,12 @@ public class DamageableEntity : MonoBehaviour
 
     public ParticleSystem PS;
     private int CurrentHealth;
+    private GameManager gameManager;
 
     void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.NotifyEnemySpawned(this);
         CurrentHealth = MaxHealth;
     }
 
@@ -28,7 +31,8 @@ public class DamageableEntity : MonoBehaviour
     {
         PS.transform.SetParent(null,false);
         PS.transform.position=transform.position;
-        PS.Play();  
+        PS.Play(); 
+        gameManager.NotifyEnemyDeath(this);
         Destroy(gameObject);
     }
 

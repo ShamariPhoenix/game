@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Laser : MonoBehaviour
 {
     public GameObject bulletPrefab;
+
     public float fireRate;
 
     public Transform enemyParent;
+
+    public int numBullets { get; set; } = 1;
 
     private Transform playerTransform;
 
@@ -77,15 +81,25 @@ public class Laser : MonoBehaviour
 
     private void shootBullet(Transform enemy)
     {
-        var bullet = Instantiate(bulletPrefab);
-        bullet.transform.position = playerTransform.position;
-        var projectile = bullet.GetComponent<Projectile>();
-        var direction = (enemy.position - bullet.transform.position).normalized;
-        projectile.fire(direction);
+        for (int i = 0; i < numBullets; i++)
+        {
+            
+            var bullet = Instantiate(bulletPrefab);
+            bullet.transform.position = playerTransform.position;
+            var projectile = bullet.GetComponent<Projectile>();
+            var direction = (enemy.position - bullet.transform.position).normalized;
 
-        var damager=bullet.GetComponent<Damager>();
+            var leftOfDirection = new Vector3(-direction.y, direction.x, 0);
+            float offsetAmount = (i - (numBullets - 1) / 2.0f) * 0.2f;
+            var offset = leftOfDirection * offsetAmount;
+            bullet.transform.position += offset;
 
-        damager.setDamage(1);
+            projectile.fire(direction);
+
+            var damager=bullet.GetComponent<Damager>();
+
+            damager.setDamage(1);
+        }
     }
 
 
