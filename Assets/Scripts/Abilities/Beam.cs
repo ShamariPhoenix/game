@@ -20,7 +20,6 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(timer);
         timer += Time.deltaTime;
         if (timer > 1 / fireRate)
         {

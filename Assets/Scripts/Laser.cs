@@ -31,31 +31,11 @@ public class Laser : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 1 / fireRate)
         {
-            Transform[] enemies = new Transform[enemyParent.childCount];
-            for (int i = 0; i < enemyParent.childCount; i++)
-            {
-                enemies[i] = enemyParent.GetChild(i);
-            }
-
-            if (enemies.Length <= 0)
-            {
-                return;
-            }
-
-            var enemy = getNearestEnemy(enemies);
-            faceTowards(enemy);
-
-            shootBullet(enemy);
+            shootBullet();
             timer = 0;
         }
 
     }
-
-    private void faceTowards(Transform enemyTransform)
-    {
-        playerTransform.right = (enemyTransform.position - playerTransform.position).normalized;
-    }
-
 
     private Transform getNearestEnemy(Transform[] enemies)
     {
@@ -79,7 +59,7 @@ public class Laser : MonoBehaviour
         return nearestEnemy;
     }
 
-    private void shootBullet(Transform enemy)
+    private void shootBullet()
     {
         for (int i = 0; i < numBullets; i++)
         {
@@ -87,7 +67,7 @@ public class Laser : MonoBehaviour
             var bullet = Instantiate(bulletPrefab);
             bullet.transform.position = playerTransform.position;
             var projectile = bullet.GetComponent<Projectile>();
-            var direction = (enemy.position - bullet.transform.position).normalized;
+            var direction = Vector2.up;
 
             var leftOfDirection = new Vector3(-direction.y, direction.x, 0);
             float offsetAmount = (i - (numBullets - 1) / 2.0f) * 0.2f;
