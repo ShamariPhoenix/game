@@ -5,6 +5,6 @@ public class ApplyPower_Beam : PowerCard
 {
     public override void ApplyChoice()
     {
-        
+        player.GetComponent<Beam>().enabled = true;
     }
 }

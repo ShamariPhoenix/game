@@ -20,6 +20,7 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(timer);
         timer += Time.deltaTime;
         if (timer > 1 / fireRate)
         {
@@ -35,7 +36,7 @@ public class Beam : MonoBehaviour
             }
 
             var enemy = getRandomEnemy(enemies);
-
+            
             StartCoroutine(shootBeam(enemy));
             timer = 0;
         }
@@ -59,7 +60,7 @@ public class Beam : MonoBehaviour
         var direction = (enemy.position - beam.transform.position).normalized;
         beam.transform.right = direction;
 
-        var damager=beam.GetComponent<Damager>();
+        var damager = beam.GetComponent<Damager>();
         damager.setDamage(2);
 
         yield return new WaitForSeconds(0.5f);
