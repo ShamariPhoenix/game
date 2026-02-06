@@ -93,6 +93,7 @@ public class Laser : MonoBehaviour
             float offsetAmount = (i - (numBullets - 1) / 2.0f) * 0.2f;
             var offset = leftOfDirection * offsetAmount;
             bullet.transform.position += offset;
+            bullet.transform.right = direction;
 
             projectile.fire(direction);
 
