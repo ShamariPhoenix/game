@@ -25,14 +25,14 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        var cursorPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        var deltaX = cursorPosition.x - transform.position.x;
-        velocity.x = deltaX * Acceleration;
-        if(Mathf.Abs(velocity.x) > MaxSpeed)
-        {
-            velocity.x = MaxSpeed * Math.Sign(velocity.x);
-        }
-        transform.position += velocity * Time.deltaTime;
+        // var cursorPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        // var deltaX = cursorPosition.x - transform.position.x;
+        // velocity.x = deltaX * Acceleration;
+        // if(Mathf.Abs(velocity.x) > MaxSpeed)
+        // {
+        //     velocity.x = MaxSpeed * Math.Sign(velocity.x);
+        //}
+        //transform.position += velocity * Time.deltaTime;
     } 
 
     public void AddXP(float amount)

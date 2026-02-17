@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 513611101}
   - component: {fileID: 513611103}
   - component: {fileID: 513611105}
+  - component: {fileID: 513611106}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -644,6 +645,19 @@ MonoBehaviour:
   beamPrefab: {fileID: 2838617214424723608, guid: 3de32cb5acfd6d8459afd1f1ab3dc673, type: 3}
   fireRate: 0.2
   enemyParent: {fileID: 1125970875}
+--- !u!114 &513611106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513611098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e05f96881663b4d8e213753052f76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +675,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!81 &519420029
 AudioListener:
