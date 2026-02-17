@@ -37,28 +37,6 @@ public class Laser : MonoBehaviour
 
     }
 
-    private Transform getNearestEnemy(Transform[] enemies)
-    {
-        if (enemies.Length <= 0)
-        {
-            throw new Exception("Enemies array is length zero");
-        }
-
-        float minimumDistance = float.MaxValue;
-        Transform nearestEnemy = enemies[0];
-        foreach (var enemy in enemies)
-        {
-            float distance = Vector2.Distance(playerTransform.position, enemy.position);
-            if (distance < minimumDistance)
-            {
-                minimumDistance = distance;
-                nearestEnemy = enemy;
-            }
-
-        }
-        return nearestEnemy;
-    }
-
     private void shootBullet()
     {
         for (int i = 0; i < numBullets; i++)
