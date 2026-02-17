@@ -10,7 +10,7 @@ public class PlayerMovement: MonoBehaviour
     public float Max_X=10f;
     public float Min_X=-10f;
 
-    public float Speed=1;
+    public float speed=1;
 
     private Vector3 Position;
 
