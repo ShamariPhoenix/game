@@ -35,7 +35,7 @@ public class Beam : MonoBehaviour
             }
 
             var enemy = getRandomEnemy(enemies);
-            
+
             StartCoroutine(shootBeam(enemy));
             timer = 0;
         }
@@ -60,7 +60,7 @@ public class Beam : MonoBehaviour
         beam.transform.right = direction;
 
         var damager = beam.GetComponent<Damager>();
-        damager.setDamage(2);
+        damager.SetDamage(2);
 
         yield return new WaitForSeconds(0.5f);
 
