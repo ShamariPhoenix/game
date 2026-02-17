@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 513611098}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -626,6 +626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   XpPerLevel: 10
   XpPerLevelFactor: 1.1
+  MaxSpeed: 8
+  Acceleration: 30
   levelUpPanel: {fileID: 991435452}
 --- !u!114 &513611105
 MonoBehaviour:
@@ -894,7 +896,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   levelWaveData: {fileID: 11400000, guid: 77195211d8f9211468b86b77621176d9, type: 2}
   enemyParentTransform: {fileID: 1125970875}
-  enemySpawnDistance: 7
+  enemySpawnMinX: -4
+  enemySpawnMaxX: 4
+  enemySpawnY: 5
   spawnDistanceJitter: 1
 --- !u!4 &770851795
 Transform:
@@ -1514,13 +1518,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764099879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 513611100}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1764099881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1576,7 +1580,7 @@ SpriteRenderer:
   m_Size: {x: 1.13, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1766487422
