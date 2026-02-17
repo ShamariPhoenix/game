@@ -6,8 +6,6 @@ using UnityEngine.Rendering;
 public class DamageableEntity : MonoBehaviour
 {
     public int MaxHealth;
-
-    public ParticleSystem PS;
     private int CurrentHealth;
     private GameManager gameManager;
 
@@ -29,9 +27,6 @@ public class DamageableEntity : MonoBehaviour
 
     private void OnHealthReachedZero()
     {
-        PS.transform.SetParent(null,false);
-        PS.transform.position=transform.position;
-        PS.Play(); 
         gameManager.NotifyEnemyDeath(this);
         Destroy(gameObject);
     }

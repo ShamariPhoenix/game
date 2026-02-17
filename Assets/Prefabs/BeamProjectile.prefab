@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3309996801960946526}
   - component: {fileID: 9176639528064350441}
   - component: {fileID: 5392438847707321503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BeamProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872791557311642962}
   - component: {fileID: 5180416219577921926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
