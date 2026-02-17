@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7451660353819384075}
   - component: {fileID: 1404153215955992989}
   - component: {fileID: 7068253760503416343}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LaserProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 10
+  maxLifetime: 5
 --- !u!114 &1812628380234889408
 MonoBehaviour:
   m_ObjectHideFlags: 0

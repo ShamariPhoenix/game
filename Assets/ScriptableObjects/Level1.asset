@@ -23,4 +23,12 @@ MonoBehaviour:
       count: 20
     - enemyPrefab: {fileID: 1896070540501996578, guid: d6d5d2bbbf2e91542b520b6ed973ad24, type: 3}
       count: 5
+  - enemyData:
+    - enemyPrefab: {fileID: 4009562732056801181, guid: 22739f6d527eb5f45b3c877859c1d0f4, type: 3}
+      count: 40
+    - enemyPrefab: {fileID: 1896070540501996578, guid: d6d5d2bbbf2e91542b520b6ed973ad24, type: 3}
+      count: 5
+  - enemyData:
+    - enemyPrefab: {fileID: 1896070540501996578, guid: d6d5d2bbbf2e91542b520b6ed973ad24, type: 3}
+      count: 40
   timeBetweenWaves: 10

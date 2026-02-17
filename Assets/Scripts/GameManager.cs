@@ -25,4 +25,9 @@ public class GameManager : MonoBehaviour
         };
         deathPS.Emit(emitParams, 50);
     }
+
+    public void PlanetDestroyed()
+    {
+        Debug.Log("Game Over");
+    }
 }
