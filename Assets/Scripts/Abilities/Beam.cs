@@ -51,6 +51,7 @@ public class Beam : MonoBehaviour
         int index = Random.Range(0, enemies.Length);
         return enemies[index];
     }
+
     private IEnumerator shootBeam(Transform enemy)
     {
         yield return null;
@@ -62,7 +63,7 @@ public class Beam : MonoBehaviour
         var damager = beam.GetComponent<Damager>();
         damager.SetDamage(2);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         Destroy(beam.gameObject);
     }
