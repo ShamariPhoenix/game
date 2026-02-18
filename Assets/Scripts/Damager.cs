@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Damager : MonoBehaviour
 {
-   public int damage { get; private set; }
+    public int damage { get; private set; }
 
-   public int GetDamage()
+    public int GetDamage()
     {
         return damage;
     }
 
-   public void setDamage(int newDamage)
+    public void SetDamage(int newDamage)
     {
-        damage=newDamage;
+        damage = newDamage;
     }
 }
