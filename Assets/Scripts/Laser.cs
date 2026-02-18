@@ -41,7 +41,7 @@ public class Laser : MonoBehaviour
     {
         for (int i = 0; i < numBullets; i++)
         {
-            
+
             var bullet = Instantiate(bulletPrefab);
             bullet.transform.position = playerTransform.position;
             var projectile = bullet.GetComponent<Projectile>();
@@ -55,9 +55,9 @@ public class Laser : MonoBehaviour
 
             projectile.fire(direction);
 
-            var damager=bullet.GetComponent<Damager>();
+            var damager = bullet.GetComponent<Damager>();
 
-            damager.setDamage(1);
+            damager.SetDamage(1);
         }
     }
 

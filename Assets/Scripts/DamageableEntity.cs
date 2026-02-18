@@ -19,7 +19,7 @@ public class DamageableEntity : MonoBehaviour
     private void ApplyDamage(int damage)
     {
         CurrentHealth -= damage;
-        if(CurrentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             OnHealthReachedZero();
         }
@@ -34,7 +34,7 @@ public class DamageableEntity : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Damager damager = collision.GetComponent<Damager>();
-        if(damager != null)
+        if (damager != null)
         {
             int damage = damager.damage;
             ApplyDamage(damage);
